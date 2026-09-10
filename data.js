@@ -70,7 +70,7 @@ const businessData = {
 
         organization: "اسماك اخوين",
 
-        website: "https://example.com"
+    
 
     }
 
