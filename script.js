@@ -121,46 +121,52 @@ document.addEventListener("DOMContentLoaded", () => {
         .addEventListener("click", saveContact);
 
 
-/* =========================================================
-   SAVE CONTACT
-========================================================= */
+    /* =========================================================
+       SAVE CONTACT
+    ========================================================= */
 
-function saveContact() {
+    function saveContact() {
 
-    const contact = businessData.contact;
+        const contact = businessData.contact;
 
-    const vCard = `
+        /*
+         * vCard
+         * بدون URL ديال الموقع
+         */
+
+        const vCard = `
 BEGIN:VCARD
 VERSION:3.0
 FN:${contact.firstName} ${contact.lastName}
 N:${contact.lastName};${contact.firstName};;;
 ORG:${contact.organization}
 TEL;TYPE=CELL:${contact.phone}
-URL:${contact.website}
 END:VCARD
 `;
 
-    const blob = new Blob(
-        [vCard.trim()],
-        { type: "text/vcard;charset=utf-8" }
-    );
+        const blob = new Blob(
+            [vCard.trim()],
+            {
+                type: "text/vcard;charset=utf-8"
+            }
+        );
 
-    const url = URL.createObjectURL(blob);
+        const url = URL.createObjectURL(blob);
 
-    const link = document.createElement("a");
+        const link = document.createElement("a");
 
-    link.href = url;
+        link.href = url;
 
-    link.download =
-        `${contact.firstName}-${contact.lastName}.vcf`;
+        link.download =
+            `${contact.firstName}-${contact.lastName}.vcf`;
 
-    document.body.appendChild(link);
+        document.body.appendChild(link);
 
-    link.click();
+        link.click();
 
-    document.body.removeChild(link);
+        document.body.removeChild(link);
 
-    URL.revokeObjectURL(url);
-}
+        URL.revokeObjectURL(url);
+    }
 
-});0
+});
