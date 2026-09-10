@@ -62,13 +62,13 @@ const businessData = {
 
     contact: {
 
-        firstName: "MA",
+        firstName: "اسماك",
 
-        lastName: "BOUTIQUE",
+        lastName: "اخوين",
 
         phone: "+212653291684",
 
-        organization: "MA BOUTIQUE",
+        organization: "اسماك اخوين",
 
         website: "https://example.com"
 
